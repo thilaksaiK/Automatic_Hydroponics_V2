@@ -1,0 +1,6 @@
+I2CDB 		KEYWORD1
+setOutputs 	KEYWORD2
+getTemperature	KEYWORD2
+getLevel	KEYWORD2
+getHumidity 	KEYWORD2
+isConnected 	KEYWORD2
