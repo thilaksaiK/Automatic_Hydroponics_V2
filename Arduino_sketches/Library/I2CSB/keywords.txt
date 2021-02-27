@@ -1,4 +1,4 @@
-I2CDB 		KEYWORD1
+I2CSB 		KEYWORD1
 setOutputs 	KEYWORD2
 getTemperature	KEYWORD2
 getLevel	KEYWORD2
