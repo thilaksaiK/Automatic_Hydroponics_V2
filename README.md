@@ -24,7 +24,7 @@ The schematic and pcd designs are made using KiCAD. Find the files [KiCad_PCB_de
 ## Master board
 ![PCB_layout](Images/ESP_PCB_pic.jpg)
 
-## Total setup overview Slave Board
+## Total setup overview
 ![PCB_layout](Images/Setup_pic.jpg)
 
 >Find more pictures in [Images](Images) folder
