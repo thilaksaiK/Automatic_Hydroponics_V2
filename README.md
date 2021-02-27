@@ -56,7 +56,7 @@ To use the library just navigate to [I2CSB](Arduino_sketches/Library/I2CSB/) and
 ## How to use the functions in the library?
 
 1. First instantiate the class I2CSB with a slave address
-```
+```cpp
 #define Slave_address 0x2F
 I2CSB DB1(Slave_address);
 ```
