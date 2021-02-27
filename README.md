@@ -19,9 +19,18 @@ Automatic_Hydroponics_V2
 ## The PCB layout of Master board
 ![PCB_layout](Images/Slave_PCB.png)
 
+# Building the hardware
+## Master board
+
+
+## Slave Board
+
+
 ## Using `I2CSB` library.
 
 This arduino compatible library is made to simplify the communication definition that happens between master *esp32* and slave *arduino nano*.
+
+> I2CSB stands for I2C Slave board
 
 The slave arduino nano does the following:
 - controls 4 relays named as
@@ -34,6 +43,8 @@ The slave arduino nano does the following:
 - Is connected to a DHT11 Temperature and Humidity sensor on pin 4.
 - Has two sets of water level sensors with each water level sensor can detect 3 distinct points in the used bucket.
 
+ You can fetch the slave code here [Arduino_slave.ino](Arduino_sketches/Library/Arduino_I2C_slave/Arduino_I2C_slave.ino)
+ 
 The Master ESP32 can access these function using the `I2CSB` Library. As the name suggests the communication happens in I2C protocol. 
 
 ## How to add the library?
