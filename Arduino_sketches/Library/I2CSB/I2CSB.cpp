@@ -1,12 +1,12 @@
 #include "Arduino.h"
-#include "I2CDB.h"
+#include "I2CSB.h"
 #include "Wire.h"
 
-I2CDB::I2CDB(byte address){
+I2CSB::I2CSB(byte address){
 	_address = address;
 }
 
-byte I2CDB::readI2Csensor(byte _address){
+byte I2CSB::readI2Csensor(byte _address){
   long entry = millis();
   Wire.requestFrom((uint8_t)_address, (uint8_t)2);
   while(Wire.available() == 0 &&(millis() - entry) < 100){}
@@ -14,7 +14,7 @@ byte I2CDB::readI2Csensor(byte _address){
   return Wire.read();
 }
 
-byte I2CDB::getLevel(){
+byte I2CSB::getLevel(){
 byte ReceivedData[3] = {0, 0, 0};
   Wire.beginTransmission(_address); // transmit to device #4
   Wire.write(0xAA);              // sends one byte  
@@ -30,7 +30,7 @@ byte ReceivedData[3] = {0, 0, 0};
   return returnVal;
 }
 
-bool I2CDB::setOutputs(bool LightPin, bool MistMotor, bool PlantMotor, bool BucketMotor){
+bool I2CSB::setOutputs(bool LightPin, bool MistMotor, bool PlantMotor, bool BucketMotor){
   byte ReceivedData[3] = {0, 0, 0};
   byte sendByte = BucketMotor | PlantMotor<<1 | MistMotor<<2 | LightPin<<3;
   sendByte |= 0x60;
@@ -44,7 +44,7 @@ bool I2CDB::setOutputs(bool LightPin, bool MistMotor, bool PlantMotor, bool Buck
   return ReceivedData[0] == sendByte;
 }
 
-int I2CDB::getTemperature(){
+int I2CSB::getTemperature(){
   byte ReceivedData[3] = {0, 0, 0};
   Wire.beginTransmission(_address);
   Wire.write(0xCA); 
@@ -60,7 +60,7 @@ int I2CDB::getTemperature(){
   	return -1;
 }
 
-int I2CDB::getHumidity(){
+int I2CSB::getHumidity(){
   byte ReceivedData[3] = {0, 0, 0};
   Wire.beginTransmission(_address);
   Wire.write(0x5C); 
@@ -76,7 +76,7 @@ int I2CDB::getHumidity(){
 		return -1;
 }
 
-bool I2CDB::isConnected(){
+bool I2CSB::isConnected(){
 byte ReceivedData[3] = {0, 0, 0};
   Wire.beginTransmission(_address); // transmit to device #4
   Wire.write(0xAA);              // sends one byte  

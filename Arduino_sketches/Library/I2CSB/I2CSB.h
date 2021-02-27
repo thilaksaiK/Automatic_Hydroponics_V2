@@ -4,15 +4,15 @@
 	Created by K S Sai Thilak, February 25, 2021.
 */
 
-#ifndef I2CDB_h
-#define I2CDB_h
+#ifndef I2CSB_h
+#define I2CSB_h
 
 #include "Arduino.h"
 #include "Wire.h"
-class I2CDB
+class I2CSB
 {
 	public:
-		I2CDB(byte address);
+		I2CSB(byte address);
 		byte getLevel();
 		bool setOutputs(bool LightPin, bool MistMotor, bool PlantMotor, bool BucketMotor);
          	int getHumidity();
