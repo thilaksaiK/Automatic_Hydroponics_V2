@@ -14,18 +14,19 @@ Automatic_Hydroponics_V2
 
 # PCB layout
 ## The PCB layout of Master board
-![PCB_layout](Images/ESP_PCB.png)
+![PCB_layout](Images/ESP_PCB.png)Setup_pic.jpg)
 
 ## The PCB layout of Master board
 ![PCB_layout](Images/Slave_PCB.png)
 
 # Building the hardware
 ## Master board
+![PCB_layout](Images/ESP_PCB_pic.jpg)
 
+## Total setup overview Slave Board
+![PCB_layout](Images/Setup_pic.jpg)
 
-## Slave Board
-
-
+>Find more pictures in [Images](Images) folder
 ## Using `I2CSB` library.
 
 This arduino compatible library is made to simplify the communication definition that happens between master *esp32* and slave *arduino nano*.
@@ -98,4 +99,6 @@ The library also can monitor communication error or Miscommunication took place.
 * The first byte is the data that is sent by master to slave so that the master can verify that slave performed correct action. and there was no miscommunication happened. 
 * The second two bytes are identical. If they match then the master decides that the information received is correct and and proceeds to decode the bytes.
 * The `isConnected()` function is same as `getLevel()` function with a different data type. Because I was ~lazy~ to write a new function for that purpose. 
+* The example code can be found here [Example_code.ino](Arduino_sketches/Library/I2CSB/Examples/Example_code/Example_code.ino).
 
+This library can be used as a base to make any type of simple arduino I2C slave device.
