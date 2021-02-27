@@ -34,18 +34,18 @@ The slave arduino nano does the following:
 - Is connected to a DHT11 Temperature and Humidity sensor on pin 4.
 - Has two sets of water level sensors with each water level sensor can detect 3 distinct points in the used bucket.
 
-The Master ESP32 can access these function using the `I2CDB` Library. As the name suggests the communication happens in I2C protocol. 
+The Master ESP32 can access these function using the `I2CSB` Library. As the name suggests the communication happens in I2C protocol. 
 
 ## How to add the library?
 
-To use the library just navigate to [I2CDB](Arduino_sketches/Library/I2CDB/) and download it as zip file. Later in arduino IDE add this library using library manager and get started with the library using examples.
+To use the library just navigate to [I2CSB](Arduino_sketches/Library/I2CSB/) and download it as zip file. Later in arduino IDE add this library using library manager and get started with the library using examples.
 
 ## How to use the functions in the library?
 
-1. First instantiate the class I2CDB with a slave address
+1. First instantiate the class I2CSB with a slave address
 ```
 #define Slave_address 0x2F
-I2CDB DB1(Slave_address);
+I2CSB DB1(Slave_address);
 ```
 2. Initialize the I2C communication by calling `Wire.begin()`
 
