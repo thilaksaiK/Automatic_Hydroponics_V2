@@ -103,10 +103,6 @@ Text GLabel 3105 2200 2    50   Input ~ 0
 Output_B
 Wire Wire Line
 	3100 2400 2950 2400
-Wire Wire Line
-	2950 2500 3100 2500
-Wire Wire Line
-	3100 2600 2950 2600
 Text GLabel 1325 2200 0    50   Input ~ 0
 Buzzer
 Text GLabel 1325 2300 0    50   Input ~ 0
