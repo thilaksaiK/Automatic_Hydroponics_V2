@@ -2,8 +2,16 @@ Automatic_Hydroponics_V2
 ==========================
 
 ## The schematic diagram
-##The schematic diagram of Master board
-## Using `I2CDB` library.
+# The schematic diagram of Master board 
+* The master board has an ESP32, DS1307 RTC clock, AT24C512 EEPROM and an I2C LCD display.
+* The master board has a JST connecter port to connect to slave board. 
+
+
+# The schematic of Slave Board
+* The slave board has an Arduino Nano, DHT11 sensor, 4 relays. 
+* The master board and slave board are connected with I2C bus.
+
+## Using `I2CSB` library.
 
 This arduino compatible library is made to simplify the communication definition that happens between master *esp32* and slave *arduino nano*.
 
