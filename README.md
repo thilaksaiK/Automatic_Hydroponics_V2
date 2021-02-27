@@ -1,5 +1,8 @@
 Automatic_Hydroponics_V2
 ==========================
+
+## The schematic diagram
+##The schematic diagram of Master board
 ## Using `I2CDB` library.
 
 This arduino compatible library is made to simplify the communication definition that happens between master *esp32* and slave *arduino nano*.
@@ -34,11 +37,13 @@ I2CDB DB1(Slave_address);
 
 | Function name       | What is returned | return type | Arguments |
 |---------------------|------------------|-------------|-----------|
-| 1. isConnected()    |true if slave is connected | bool| no|
-| 2. getLevel()       |Level encoded in single byte| byte| no|
-| 3. getTemperature() |Temperature       | int  | no|
-| 4. getHumidity()    |Humidity          | int  | no|
+| 1. isConnected()    |true if slave is connected | bool| no arguments|
+| 2. getLevel()       |Level encoded in single byte| byte| no arguments|
+| 3. getTemperature() |Temperature       | int  | no arguments|
+| 4. getHumidity()    |Humidity          | int  | no arguments|
 | 5. setOutputs()     |`True` if the outputs are set correctly `False` if fails to set| bool | 4 bool variables|
+
+## Handelling the Errors and Miscommunication
 
 The library also can monitor communication error or Miscommunication took place. This is how:
 
@@ -48,3 +53,22 @@ The library also can monitor communication error or Miscommunication took place.
 4. Similarly for `getHumidity()` function, the return type is int and has values between 20 to 80. so if there is any error then the returned value will be -10.
 5. For setOutputs() the return value is `True` if there is no error in communication as well as the outputs are set as expected. 
  The arguments in `setOutputs()` function is in this order `setOutputs(BucketMotor, PlantMotor, MistMotor, LightPin)`
+ 
+ ## The commuication definition.
+ 
+ * The communication is built on I2C protocol.
+ * The master sends a byte contains the function the slave has to performs along with the arguments encoded in the single byte.
+ * The master requests the slave 200 milliseconds later to send the fetched data/ performed action feedback encoded in 3 bytes as follows.
+
+| Function name       | Sent Byte | Received  bytes |
+|---------------------|-----------|-----------------|
+| 2. getLevel()       | 0xAA      | 0xAA 0xYY 0xYY  |
+| 3. getTemperature() | 0xCA      | 0xCA 0xYY 0xYY  |
+| 4. getHumidity()    | 0x5c      | 0x5C 0xYY 0xYY  |
+| 5. setOutputs()     | 0x60      | 0x60 0xYY 0xYY  |
+| 1. isConnected()    | 0xAA      | 0xAA 0xYY 0xYY  |
+
+* The first byte is the data that is sent by master to slave so that the master can verify that slave performed correct action. and there was no miscommunication happened. 
+* The second two bytes are identical. If they match then the master decides that the information received is correct and and proceeds to decode the bytes.
+* The `isConnected()` function is same as `getLevel()` function with a different data type. Because I was ~lazy~ to write a new function for that purpose. 
+
