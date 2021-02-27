@@ -2,6 +2,7 @@ Automatic_Hydroponics_V2
 ==========================
 
 # The schematic diagram
+The schematic and pcd designs are made using KiCAD. Find the files [KiCad_PCB_design](PCB_designes/KiCad_PCB_design/)
 ## The schematic diagram of Master board
 ![Schematic](Images/ESP_PCB.jpg)
 * The master board has an ESP32, DS1307 RTC clock, AT24C512 EEPROM and an I2C LCD display.
