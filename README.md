@@ -103,3 +103,6 @@ The library also can monitor communication error or Miscommunication took place.
 * The example code can be found here [Example_code.ino](Arduino_sketches/Library/I2CSB/Examples/Example_code/Example_code.ino).
 
 This library can be used as a base to make any type of simple arduino I2C slave device.
+
+# Using EEPROM Database
+
