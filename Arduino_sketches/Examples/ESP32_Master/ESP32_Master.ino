@@ -243,8 +243,8 @@ void readData(int address){
   Serial.print("\t");
   Serial.print("Minutes : ");
   Serial.println((((int)(AccessData[0]<<8 | AccessData[1]) %1440)%24)/60);
-
 }
+
 void UpdateTime(){
   DateTime now = rtc.now();
   Day = now.day();
