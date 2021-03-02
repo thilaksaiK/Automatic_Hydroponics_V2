@@ -1,0 +1,19 @@
+DataBase	KEYWORD1
+
+# I2C_eeprom
+storeAt	KEYWORD2
+getNextAddress	KEYWORD2
+resetAddress	KEYWORD2
+getDataAt	KEYWORD2
+
+# Constants (LITERAL1)
+DD	LITERAL1
+HoD	LITERAL1
+MD	LITERAL1
+LD	LITERAL1
+TD	LITERAL1
+HuD	LITERAL1
+
+# Nothing
+
+
