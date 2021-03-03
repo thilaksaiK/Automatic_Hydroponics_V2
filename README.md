@@ -139,9 +139,17 @@ The library offers following functions:
 |Function name | arguments | return value|
 |--------------|-----------|-------------|
 |[storeAt](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#storeat)|EEPROM Object, Address, Day, Hour, Minute, Temperature, Humidity, Waterlevel array| void type|
-|resetAddress|EEPROM Object|void|
-|getDataAt| EEPROM Object, Address, Data-literal| Data|
-|getNextAddress| EEPROM Object| Address of next Dataset to be written|
-|resetAddress| EEPROM Object| resets the address pointer to initial value|
+|[resetAddress](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#resetAddress)|EEPROM Object|void|
+|[getDataAt](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#getDataAt)| EEPROM Object, Address, Data-literal| Data|
+|[getNextAddress](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#getNextAddress)| EEPROM Object| Address of next Dataset to be written|
+|[resetAddress](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#resetAddress)| EEPROM Object| resets the address pointer to initial value|
 
 ### storeAt()
+
+### resetAddress()
+
+### getDataAt()
+
+### getNextAddress()
+
+### resetAddress()
