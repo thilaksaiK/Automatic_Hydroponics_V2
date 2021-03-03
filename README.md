@@ -143,7 +143,18 @@ The library offers following functions:
 |[getDataAt](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#getDataAt)| EEPROM Object, Address, Data-literal| Data|
 |[getNextAddress](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#getNextAddress)| EEPROM Object| Address of next Dataset to be written|
 |[resetAddress](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#resetAddress)| EEPROM Object| resets the address pointer to initial value|
-
+### Usage
+* Include the library DataBase and [I2CEEPROM](https://github.com/RobTillaart/Arduino/tree/master/libraries/I2C_EEPROM) on arduino IDE.
+* create an I2C_eeprom object
+```c++
+I2C_eeprom ee(0x50, I2C_DEVICESIZE_24LC512);
+```
+* Create a DataBase object
+```c++
+DataBase DB;
+```
+* Begin the EEPROM object ```c++ ee ``` using ```c++ ee.begin()```.
+* 
 ### storeAt()
 
 ### resetAddress()
