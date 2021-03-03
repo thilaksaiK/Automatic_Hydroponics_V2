@@ -108,6 +108,9 @@ This library can be used as a base to make any type of simple arduino I2C slave 
 
 Find the database library here [DataBase](Arduino_sketches/Library/DataBase/).
 
+The data structure:
+* The EEPROM used here is *AT24C512* which can store 512Kbits or 64KBytes which are byte addressable. So the address value renge is from 0x0000 to 0xFFFF which is exactly same size that an integer(2 bytes) takes in an Arduino.
+* 
 The library offers following functions:
 
 |Function name | arguments | return value|
@@ -115,4 +118,6 @@ The library offers following functions:
 |storeAt       |EEPROM Object, Address, Day, Hour, Minute, Temperature, Humidity, Waterlevel array| void type|
 |resetAddress|EEPROM Object|void|
 |getDataAt| EEPROM Object, Address, Data-literal| Data|
+|getNextAddress| EEPROM Object| Address of next Dataset to be written|
+|resetAddress| EEPROM Object| resets the address pointer to initial value|
 
