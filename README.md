@@ -2,35 +2,35 @@ Automatic_Hydroponics_V2
 ==========================
 
 # The schematic diagram
-The schematic and pcd designs are made using KiCAD. Find the files [KiCad_PCB_design](PCB_designes/KiCad_PCB_design/)
-## The schematic diagram of Master board
+The Schematic and PCB designs are made using KiCAD. Find the files here: [KiCad_PCB_design](PCB_designes/KiCad_PCB_design/)
+## The Schematic Diagram of Master board
 ![Schematic](Images/ESP_PCB.jpg)
-* The master board has an ESP32, DS1307 RTC clock, AT24C512 EEPROM and an I2C LCD display.
-* The master board has a JST connecter port to connect to slave board. 
+* The Master board has an ESP32, DS1307 RTC clock, AT24C512 EEPROM and an I2C LCD display.
+* The Master board has a JST connecter port to connect to slave board. 
 
-## The schematic of Slave Board
+## The Schematic of Slave Board
 ![Schematic](Images/Arduino_relay.jpg)
 * The slave board has an Arduino Nano, DHT11 sensor, 4 relays. 
 * The master board and slave board are connected with I2C bus.
 
-# PCB layout
-## The PCB layout of Master board
+# PCB Layout
+## The PCB Layout of Master board
 ![PCB_layout](Images/ESP_PCB.png)Setup_pic.jpg)
 
-## The PCB layout of Master board
+## The PCB Layout of Master board
 ![PCB_layout](Images/Slave_PCB.png)
 
-# Building the hardware
+# Building the Hardware
 ## Master board
 ![PCB_layout](Images/ESP_PCB_pic.jpg)
 
-## Total setup overview
+## Total Setup Overview
 ![PCB_layout](Images/Setup_pic.jpg)
 
 >Find more pictures in [Images](Images) folder
 ## Using `I2CSB` library.
 
-This arduino compatible library is made to simplify the communication definition that happens between master *esp32* and slave *arduino nano*.
+This Arduino compatible library is made to simplify the communication paradigm that happens between master *ESP32* and slave *Arduino Nano*.
 
 > I2CSB stands for I2C Slave board
 
@@ -43,7 +43,7 @@ The slave arduino nano does the following:
 4. Light Pin    connected to pin 6
 
 - Is connected to a DHT11 Temperature and Humidity sensor on pin 4.
-- Has two sets of water level sensors with each water level sensor can detect 3 distinct points in the used bucket.
+- Has two set of water level sensors and each water level sensor can detect 3 distinct points in the used buckets.
 
  You can fetch the slave code here [Arduino_slave.ino](Arduino_sketches/Library/Arduino_I2C_slave/Arduino_I2C_slave.ino)
  
@@ -105,4 +105,19 @@ The library also can monitor communication error or Miscommunication took place.
 This library can be used as a base to make any type of simple arduino I2C slave device.
 
 # Using EEPROM Database
+
+Find the database library here [DataBase](Arduino_sketches/Library/DataBase/).
+
+The data structure:
+* The EEPROM used here is *AT24C512* which can store 512Kbits or 64KBytes which are byte addressable. So the address value renge is from 0x0000 to 0xFFFF which is exactly same size that an integer(2 bytes) takes in an Arduino.
+* 
+The library offers following functions:
+
+|Function name | arguments | return value|
+|--------------|-----------|-------------|
+|storeAt       |EEPROM Object, Address, Day, Hour, Minute, Temperature, Humidity, Waterlevel array| void type|
+|resetAddress|EEPROM Object|void|
+|getDataAt| EEPROM Object, Address, Data-literal| Data|
+|getNextAddress| EEPROM Object| Address of next Dataset to be written|
+|resetAddress| EEPROM Object| resets the address pointer to initial value|
 
