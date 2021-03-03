@@ -109,8 +109,31 @@ This library can be used as a base to make any type of simple arduino I2C slave 
 Find the database library here [DataBase](Arduino_sketches/Library/DataBase/).
 
 The data structure:
+* The following data is stored in EEPROM Every minute.
+
+| Data | Bytes taken | Range |
+|------|-------------|-------|
+|Day, Hour, Minute in the month| 2 bytes | 44640|
+|Temperature | 1 byte | 0 to 60 degC|
+|Humidity | 1 byte | 20 to 80% |
+|Level Array| 1 byte| 0x00 to 0x77|
+
+* In a nutshell each data set consumes 5 bytes so the EEPROM can log the data for complete 9 days.
+* The pointer of next address to be written locally on EEPROM because if arduino restarts the local pointer on arduino will be lost and the new data is re-written on EEPROM.
 * The EEPROM used here is *AT24C512* which can store 512Kbits or 64KBytes which are byte addressable. So the address value renge is from 0x0000 to 0xFFFF which is exactly same size that an integer(2 bytes) takes in an Arduino.
-* 
+* Therefore the first two bytes in the EEPROM is reserved to write the address pointer.
+* The following table represents the data structure employed.
+
+| Address | Data |
+|---------|---|
+| 0 , 1 | Address pointer|
+| 2 - 6 | Data set 1|
+| 7 - 11| Data set 2|
+| 12 - 16 | Data set 3|
+|(5n-3) - (5n+1) | Data set n|
+
+## Functions
+
 The library offers following functions:
 
 |Function name | arguments | return value|
@@ -121,3 +144,4 @@ The library offers following functions:
 |getNextAddress| EEPROM Object| Address of next Dataset to be written|
 |resetAddress| EEPROM Object| resets the address pointer to initial value|
 
+### storeAt()
