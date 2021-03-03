@@ -138,7 +138,7 @@ The library offers following functions:
 
 |Function name | arguments | return value|
 |--------------|-----------|-------------|
-|storeAt       |EEPROM Object, Address, Day, Hour, Minute, Temperature, Humidity, Waterlevel array| void type|
+|[storeAt](https://github.com/thilaksaiK/Automatic_Hydroponics_V2/blob/main/README.md#storeat)|EEPROM Object, Address, Day, Hour, Minute, Temperature, Humidity, Waterlevel array| void type|
 |resetAddress|EEPROM Object|void|
 |getDataAt| EEPROM Object, Address, Data-literal| Data|
 |getNextAddress| EEPROM Object| Address of next Dataset to be written|
