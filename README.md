@@ -153,7 +153,7 @@ I2C_eeprom ee(0x50, I2C_DEVICESIZE_24LC512);
 ```c++
 DataBase DB;
 ```
-* Begin the EEPROM object ```c++ ee ``` using ```c++ ee.begin()```.
+* Begin the EEPROM object ``` ee ``` using ``` ee.begin()```.
 * 
 ### storeAt()
 
