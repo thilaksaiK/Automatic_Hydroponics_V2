@@ -37,7 +37,7 @@ bool I2CSB::setOutputs(bool LightPin, bool MistMotor, bool PlantMotor, bool Buck
   Wire.beginTransmission(_address);
   Wire.write(sendByte); 
   Wire.endTransmission();
-  delay(100);
+  delay(1000);
   for(int i = 0; i < 3; i++){
     ReceivedData[i] = readI2Csensor(_address);
   }
