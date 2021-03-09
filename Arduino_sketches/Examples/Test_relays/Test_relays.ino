@@ -1,7 +1,7 @@
 #define Bucket_Motor  10
 #define Plant_Motor   9
 #define Mist_Motor    7
-
+#define Light_pin     6
 
 void setup() {
  pinMode(Bucket_Motor, OUTPUT);
