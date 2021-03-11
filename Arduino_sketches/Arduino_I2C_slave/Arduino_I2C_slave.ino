@@ -1,6 +1,7 @@
 #include<Wire.h>
 #include "DHT.h"
-#define Debug
+//Uncomment the below line to debug
+//#define Debug
 
 #define Bucket_Motor  10
 #define Plant_Motor   9
@@ -8,7 +9,7 @@
 #define Light_pin     6
 #define DHTPIN        4
 #define Data_out      13
-#define Threshold     700
+#define Threshold     600
 #define DHTTYPE       DHT11 
 
 byte c;
@@ -47,7 +48,7 @@ void setup(){
     Humidity = dht.readHumidity();
     Temperature = dht.readTemperature();
     #ifdef Debug
-    Serial.println("Temperature readed");
+    Serial.println("Temperature read");
     #endif
 }
 unsigned long PreviousMillis;
@@ -116,12 +117,13 @@ void loop(){
     sendBytes[2] = sendBytes[1];
     }
     else if(Select == 10){
+     digitalWrite(Data_out, HIGH);
     sendBytes[0] = c;
     #ifdef Debug
     Serial.println("*********Read Levels***********");
     #endif
     for(int i = 0; i<6; i++){
-      Levels_bool[i] = analogRead(Level_pins[i]) < Threshold;
+      Levels_bool[i] = analogRead(Level_pins[i]) > Threshold;
       delay(100);
       #ifdef Debug
       Serial.print(Levels_bool[i]);
@@ -146,7 +148,7 @@ void loop(){
     Serial.print("Packed byte = ");
     Serial.println(sendBytes[1], BIN);
     #endif
-
+     digitalWrite(Data_out, LOW);
     }
     if(Select == 12){
     sendBytes[0] = c;
