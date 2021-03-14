@@ -1,7 +1,7 @@
 #include<Wire.h>
 #include "DHT.h"
 //Uncomment the below line to debug
-//#define Debug
+#define Debug
 
 #define Bucket_Motor  10
 #define Plant_Motor   9
@@ -58,7 +58,7 @@ void loop(){
     Humidity = dht.readHumidity();
     Temperature = dht.readTemperature();
     #ifdef Debug
-    Serial.println("Temperature readed");
+    Serial.println("Temperature read");
     #endif
   }
   if(flag){
@@ -92,9 +92,13 @@ void loop(){
 
     else if(Select == 6){
     digitalWrite(Bucket_Motor, (c)&0x01);
+    delay(100);
     digitalWrite(Plant_Motor, (c>>1)&0x01);
+    delay(100);
     digitalWrite(Mist_Motor, (c>>2)&0x01);
+    delay(100);
     digitalWrite(Light_pin, (c>>3)&0x01);
+    delay(100);
     sendBytes[0] = 0x60;
     sendBytes[0] |= digitalRead(Bucket_Motor);
     sendBytes[0] |= digitalRead(Plant_Motor)<<1;
