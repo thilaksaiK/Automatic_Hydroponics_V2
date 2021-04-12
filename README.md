@@ -164,3 +164,5 @@ DataBase DB;
 ### getNextAddress()
 
 ### resetAddress()
+
+These are the functions that can be used to access the EEPROM To Read/Write at particular location.
