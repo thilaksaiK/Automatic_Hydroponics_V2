@@ -154,7 +154,6 @@ I2C_eeprom ee(0x50, I2C_DEVICESIZE_24LC512);
 DataBase DB;
 ```
 * Begin the EEPROM object ``` ee ``` using ``` ee.begin()```.
-* 
 ### storeAt()
 
 ### resetAddress()
