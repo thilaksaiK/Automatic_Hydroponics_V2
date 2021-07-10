@@ -1,6 +1,6 @@
 Automatic_Hydroponics_V2
 ==========================
-![The setup](Images/Mounted_pic.jpeg)
+![The setup](Images/Mounted_Setup.jpeg)
 # The schematic diagram
 The Schematic and PCB designs are made using KiCAD. Find the files here: [KiCad_PCB_design](PCB_designes/KiCad_PCB_design/)
 ## The Schematic Diagram of Master board
@@ -154,14 +154,4 @@ I2C_eeprom ee(0x50, I2C_DEVICESIZE_24LC512);
 DataBase DB;
 ```
 * Begin the EEPROM object ``` ee ``` using ``` ee.begin()```.
-### storeAt()
-
-### resetAddress()
-
-### getDataAt()
-
-### getNextAddress()
-
-### resetAddress()
-
-These are the functions that can be used to access the EEPROM To Read/Write at particular location.
+* Use the APIs in database.h file.
