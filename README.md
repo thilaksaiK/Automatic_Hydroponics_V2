@@ -1,6 +1,6 @@
 Automatic_Hydroponics_V2
 ==========================
-
+![The setup](Images/Mounted_pic.jpeg)
 # The schematic diagram
 The Schematic and PCB designs are made using KiCAD. Find the files here: [KiCad_PCB_design](PCB_designes/KiCad_PCB_design/)
 ## The Schematic Diagram of Master board
